@@ -1,0 +1,308 @@
+---
+/* Navbar.astro */
+import { Icon } from "astro-icon/components";
+---
+
+<div class="navbar" id="navigation">
+  <!-- Current Section -->
+  <div class="cursor-default">
+    <h3
+      id="current-section"
+      class="text-3xl text-purple-600 font-bold tracking-wider font-roboto-mono transition-colors"
+    >
+      .work()
+    </h3>
+  </div>
+
+  <!-- Mobile Menu Button (hidden on desktop) -->
+  <button
+    id="mobile-menu-toggle"
+    class="lg:hidden text-purple-500 hover:text-purple-400 transition-colors p-2"
+    aria-label="Toggle navigation menu"
+  >
+    <Icon name="mdi:menu" class="text-2xl" />
+  </button>
+
+  <!-- Desktop Navigation -->
+  <div class="hidden lg:flex gap-4 items-center" id="desktop-nav">
+    <!-- Links / Secciones -->
+    <nav
+      class="relative flex justify-center items-center gap-6 text-stone-300 text-lg"
+    >
+      <!-- Nav indicator - animated background element -->
+      <div
+        id="nav-indicator"
+        class="absolute h-1 bg-purple-500 bottom-0 transition-all duration-300 opacity-0"
+      >
+      </div>
+
+      <a href="#is" class="link-section nav-link" role="menuitem" tabindex="0"
+        >.is()</a
+      >
+      <a href="#work" class="link-section nav-link" role="menuitem" tabindex="0"
+        >.work()</a
+      >
+      <a
+        href="#projects"
+        class="link-section nav-link"
+        role="menuitem"
+        tabindex="0">.projects()</a
+      >
+      <a
+        href="#about"
+        class="link-section nav-link"
+        role="menuitem"
+        tabindex="0">.about()</a
+      >
+      <a
+        href="#skills"
+        class="link-section nav-link"
+        role="menuitem"
+        tabindex="0">.skills()</a
+      >
+      <a
+        href="#contact"
+        class="link-section-active nav-link"
+        role="menuitem"
+        tabindex="0">.contact()</a
+      >
+    </nav>
+
+    <!-- Social Media -->
+    <div class="flex gap-4">
+      <a
+        href="https://github.com/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub Profile"
+        class="social-link"
+      >
+        <Icon
+          name="mdi:github"
+          class="text-3xl text-purple-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+        />
+      </a>
+      <a
+        href="https://linkedin.com/in/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn Profile"
+        class="social-link"
+      >
+        <Icon
+          name="mdi:linkedin"
+          class="text-3xl text-purple-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+        />
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu (hidden by default) -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-zinc-900/95 z-50 hidden overflow-auto"
+  >
+    <div class="min-h-screen flex flex-col justify-center px-6 py-16">
+      <button
+        class="absolute top-6 right-6 text-purple-500"
+        id="close-mobile-menu"
+        aria-label="Close menu"
+      >
+        <Icon name="mdi:close" class="text-3xl" />
+      </button>
+
+      <nav class="flex flex-col items-center justify-center gap-8 text-xl mb-8">
+        <a href="#is" class="link-section mobile-nav-link py-2">.is()</a>
+        <a href="#work" class="link-section mobile-nav-link py-2">.work()</a>
+        <a href="#work" class="link-section mobile-nav-link py-2">.projects()</a
+        >
+        <a href="#about" class="link-section mobile-nav-link py-2">.about()</a>
+        <a href="#skills" class="link-section mobile-nav-link py-2">.skills()</a
+        >
+        <a href="#contact" class="link-section-active mobile-nav-link py-2"
+          >.contact()</a
+        >
+      </nav>
+
+      <div class="flex justify-center gap-6 mt-4">
+        <a
+          href="https://github.com/angeljpeg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub Profile"
+        >
+          <Icon name="mdi:github" class="text-4xl text-purple-500" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/angeljpeg/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+        >
+          <Icon name="mdi:linkedin" class="text-4xl text-purple-500" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @reference "tailwindcss";
+
+  .link-section {
+    @apply relative hover:text-white transition-colors duration-300 text-stone-300 font-semibold py-1 px-2;
+  }
+
+  .link-section-active {
+    @apply relative text-purple-500 font-bold hover:text-white py-1 px-2;
+  }
+
+  .navbar {
+    @apply flex justify-between items-center w-full bg-zinc-900 p-4 shadow-lg;
+  }
+
+  /* Fixed navbar position adjusted to stay within viewport bounds */
+  .navbar-active {
+    @apply fixed z-50 bg-zinc-900/90 backdrop-blur-md shadow-xl;
+    @apply mx-auto px-4 md:px-6 rounded-none;
+    @apply transform transition-all duration-500;
+  }
+
+  /* Animation for nav links */
+  .nav-link {
+    @apply relative overflow-hidden;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-purple-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .link-section-active::after {
+    @apply w-full;
+  }
+
+  /* Mobile menu animation */
+  #mobile-menu {
+    @apply transition-all duration-300 opacity-0 pointer-events-none;
+  }
+
+  #mobile-menu.active {
+    @apply flex opacity-100 pointer-events-auto;
+  }
+
+  .mobile-nav-link {
+    @apply text-2xl relative;
+  }
+
+  .mobile-nav-link::after {
+    content: "";
+    @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-0.5 bg-purple-500 transition-all duration-300;
+  }
+
+  .mobile-nav-link:hover::after,
+  .mobile-nav-link.link-section-active::after {
+    @apply w-full;
+  }
+</style>
+
+<script>
+  import { setupNavigation } from "../../scripts/Navigation";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const navigation = document.getElementById("navigation");
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const closeMenuButton = document.getElementById("close-mobile-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    // Fixed navbar on scroll
+    if (navigation) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navigation.classList.add("navbar-active");
+        } else {
+          navigation.classList.remove("navbar-active");
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    if (mobileMenuToggle && mobileMenu && closeMenuButton) {
+      mobileMenuToggle.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+      });
+
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = ""; // Re-enable scrolling
+      });
+
+      // Close mobile menu when clicking a nav link
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
+    }
+
+    // Keyboard navigation
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      link.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          link.click();
+        }
+      });
+    });
+
+    // Animated indicator for desktop nav (optional)
+    const navIndicator = document.getElementById("nav-indicator");
+    const desktopNavLinks = document.querySelectorAll("#desktop-nav .nav-link");
+
+    if (navIndicator && desktopNavLinks.length > 0) {
+      // Update indicator position on hover
+      desktopNavLinks.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          const linkRect = link.getBoundingClientRect();
+          navIndicator.style.width = `${linkRect.width - 16}px`; // Adjust width
+          navIndicator.style.left = `${link.offsetLeft + 8}px`; // Center under link
+          navIndicator.style.opacity = "1";
+        });
+
+        link.addEventListener("mouseleave", () => {
+          // Find active link
+          const activeLink = document.querySelector(
+            "#desktop-nav .link-section-active"
+          );
+          if (activeLink) {
+            const activeLinkRect = activeLink.getBoundingClientRect();
+            navIndicator.style.width = `${activeLinkRect.width - 16}px`;
+            navIndicator.style.left = `${activeLink.offsetLeft + 8}px`;
+          } else {
+            navIndicator.style.opacity = "0";
+          }
+        });
+      });
+
+      // Set initial position to active link if exists
+      const initialActiveLink = document.querySelector(
+        "#desktop-nav .link-section-active"
+      );
+      if (initialActiveLink) {
+        setTimeout(() => {
+          const activeLinkRect = initialActiveLink.getBoundingClientRect();
+          navIndicator.style.width = `${activeLinkRect.width - 16}px`;
+          navIndicator.style.left = `${initialActiveLink.offsetLeft + 8}px`;
+          navIndicator.style.opacity = "1";
+        }, 100); // Pequeño retraso para asegurar que los elementos estén renderizados
+      }
+    }
+  });
+
+  setupNavigation();
+</script>
