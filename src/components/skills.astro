@@ -1,11 +1,63 @@
 ---
 // Skills.astro
-import Angeljpeg from "./ui/Angeljpeg.astro";
 ---
 
-<section id="skills" class="min-h-screen p-24">
-  <header class="w-full border-b-4 border-purple-400 text-4xl pb-4">
-    <Angeljpeg method="skills" />
-  </header>
-  <main>Content</main>
+<section id="skills" class="px-24 text-white font-roboto-mono">
+  <main class="flex flex-col gap-12">
+    <h3 class="text-4xl font-semibold">Mis Skills</h3>
+
+    <div class="text-sm sm:text-base leading-relaxed">
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8"
+      >
+        <!-- Backend -->
+        <li class="border-l border-white/30 pl-4">
+          <div class="ml-2">
+            <span class="font-semibold">Backend</span>
+            <ul class="pl-4 border-l border-white/20 mt-1 space-y-1">
+              <li class="ml-4">Nest.js</li>
+              <li class="ml-4">Express</li>
+              <li class="ml-4">MySQL</li>
+              <li class="ml-4">TypeScript</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Frontend -->
+        <li class="border-l border-white/30 pl-4">
+          <div class="ml-2">
+            <span class="font-semibold">Frontend</span>
+            <ul class="pl-4 border-l border-white/20 mt-1 space-y-1">
+              <li class="ml-4">React</li>
+              <li class="ml-4">Astro</li>
+              <li class="ml-4">Tailwind</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Herramientas -->
+        <li class="border-l border-white/30 pl-4">
+          <div class="ml-2">
+            <span class="font-semibold">Herramientas</span>
+            <ul class="pl-4 border-l border-white/20 mt-1 space-y-1">
+              <li class="ml-4">Git</li>
+              <li class="ml-4">Linux</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Aprendiendo -->
+        <li class="border-l border-white/30 pl-4">
+          <div class="ml-2">
+            <span class="font-semibold">Aprendiendo</span>
+            <ul class="pl-4 border-l border-white/20 mt-1 space-y-1">
+              <li class="ml-4">Go</li>
+              <li class="ml-4">GraphQL</li>
+              <li class="ml-4">Docker</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
 </section>
