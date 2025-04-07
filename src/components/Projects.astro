@@ -1,6 +1,17 @@
 ---
 // Projects.astro
 import Angeljpeg from "./ui/Angeljpeg.astro";
+import ProjectCard from "./ui/ProjectCard.astro";
+
+const projects = [
+  {
+    nombre: "Portfolio",
+    desc: "Sitio personal hecho con Astro y Tailwind",
+    tech: ["Astro", "Tailwind"],
+    source: "https://github.com/angeljpeg/portfolio",
+    preview: "https://github.com/angeljpeg/portfolio",
+  },
+];
 ---
 
 <section id="projects" class="min-h-screen p-24 font-roboto-mono text-white">
@@ -8,63 +19,8 @@ import Angeljpeg from "./ui/Angeljpeg.astro";
     <Angeljpeg method="projects" />
   </header>
 
-  <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-    <!-- Project Card -->
-    <div
-      class="bg-white/5 border border-white/10 rounded-2xl shadow-lg overflow-hidden hover:shadow-purple-500/30 transition-shadow"
-    >
-      <!-- Imagen -->
-      <img
-        src="me.jpeg"
-        alt="Nombre del proyecto"
-        class="w-full h-48 object-cover"
-      />
-
-      <!-- Contenido -->
-      <div class="p-6 flex flex-col gap-4">
-        <!-- Título -->
-        <h4 class="text-2xl font-semibold">Nombre del Proyecto</h4>
-
-        <!-- Descripción -->
-        <p class="text-white/70 text-sm">
-          Breve descripción del proyecto donde explicas qué hace o por qué es
-          interesante.
-        </p>
-
-        <!-- Badges -->
-        <div class="flex flex-wrap gap-2 text-xs mt-2">
-          <span
-            class="bg-purple-600/30 border border-purple-400 text-purple-300 px-2 py-1 rounded-full"
-            >React</span
-          >
-          <span
-            class="bg-purple-600/30 border border-purple-400 text-purple-300 px-2 py-1 rounded-full"
-            >Tailwind</span
-          >
-          <span
-            class="bg-purple-600/30 border border-purple-400 text-purple-300 px-2 py-1 rounded-full"
-            >Node.js</span
-          >
-        </div>
-
-        <!-- Botones -->
-        <div class="flex gap-4 mt-4">
-          <a
-            href="#"
-            target="_blank"
-            class="flex-1 text-center bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-md transition-colors"
-          >
-            Preview
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            class="flex-1 text-center bg-transparent border border-purple-400 text-purple-300 hover:bg-purple-600 hover:text-white py-2 rounded-md transition-colors"
-          >
-            Código
-          </a>
-        </div>
-      </div>
-    </div>
+  <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Card estilo código -->
+    {projects.map(p => (<ProjectCard nombre={p.nombre} desc={p.desc} tech={p.tech}, source={p.source} preview={p.preview}/>))}
   </main>
 </section>

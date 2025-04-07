@@ -1,0 +1,42 @@
+---
+type ProyectoProps = {
+  nombre: string;
+  desc: string;
+  tech: string[];
+  source: string;
+  preview: string;
+};
+
+const { desc, nombre, preview, source, tech }: ProyectoProps = Astro.props;
+---
+
+<div
+  class="bg-[#282a36] border border-[#44475a] rounded-xl p-6 shadow-md text-sm leading-relaxed whitespace-pre-wrap font-mono text-white"
+>
+  <span class="text-[#bd93f9]">// Proyecto destacado</span><br />
+  <span class="text-[#50fa7b]">const</span>
+  <span class="text-[#8be9fd]">proyecto</span>
+  <span class="text-[#ff79c6]">=</span>
+  <span class="text-[#f1fa8c]">{`{`}</span><br />
+  <span class="text-[#8be9fd]">nombre</span>: <span class="text-[#f1fa8c]"
+    >"{nombre}"</span
+  >,<br />
+  <span class="text-[#8be9fd]">descripcion</span>: <span class="text-[#f1fa8c]"
+    >"{desc}"</span
+  >,<br /><span class="text-[#8be9fd]">tecnologias</span>: <span
+    class="text-[#f1fa8c]">[</span
+  ><span class="text-[#f1fa8c]">
+    {tech.map((t, i) => `"${t}"${i < tech.length - 1 ? ", " : ""}`).join("")}
+  </span><span class="text-[#f1fa8c]">]</span>,<br />
+  <span class="text-[#8be9fd]">preview</span>: <a
+    href={preview}
+    target="_blank"
+    class="text-[#bd93f9] underline hover:text-[#ffb86c]">"{preview}"</a
+  >,<br />
+  <span class="text-[#8be9fd]">codigo</span>: <a
+    href={source}
+    target="_blank"
+    class="text-[#bd93f9] underline hover:text-[#ffb86c]">"{source}"</a
+  ><br />
+  <span class="text-[#f1fa8c]">{`}`}</span>
+</div>
