@@ -1,11 +1,27 @@
 ---
 // About.astro
-import Angeljpeg from "./ui/angeljpeg.astro";
+import Angeljpeg from "./ui/Angeljpeg.astro";
 ---
 
-<section id="about" class="min-h-screen p-24">
-  <header class="w-full border-b-4 border-purple-400 text-4xl pb-4">
-    <Angeljpeg method="about" />
-  </header>
-  <main>Content</main>
+<section
+  id="about"
+  class="p-24 text-white font-roboto-mono flex items-center justify-center"
+>
+  <main class="flex flex-col items-start gap-6">
+    <div class="flex gap-4 items-center">
+      <img
+        src="/me.jpeg"
+        alt="angeljpeg"
+        class="rounded-full w-36 h-36 object-cover shadow-lg border-4 border-purple-300"
+      />
+      <h3 class="text-4xl font-semibold">Hola, soy Angel</h3>
+    </div>
+    <p class="mt-2 text-lg max-w-xl text-balance">
+      Soy un <span class="text-purple-500 font-semibold"
+        >desarrollador backend</span
+      >
+      apasionado por las nuevas tecnologías y siempre en busca de aprender más y
+      crear soluciones eficientes.
+    </p>
+  </main>
 </section>

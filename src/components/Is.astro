@@ -1,6 +1,7 @@
 ---
 /* Is.astro */
-import Angeljpeg from "./ui/angeljpeg.astro";
+import Angeljpeg from "./ui/Angeljpeg.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <section id="is" class="flex items-center justify-center min-h-screen px-4">
@@ -11,8 +12,47 @@ import Angeljpeg from "./ui/angeljpeg.astro";
     <span class="block text-base sm:text-lg text-purple-500 mt-2"
       >Alexis Gonzalez</span
     >
-    <p class="text-sm sm:text-lg text-stone-500">
+    <p class="text-sm sm:text-lg text-stone-500 mb-3">
       Clean Architecture | Backend Developer | REST APIs | Problem Solver
     </p>
+    <!-- Social Media -->
+    <div class="flex gap-4">
+      <a
+        href="https://github.com/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub Profile"
+        class="social-link"
+      >
+        <Icon
+          name="mdi:github"
+          class="text-3xl text-purple-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+        />
+      </a>
+      <a
+        href="https://linkedin.com/in/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn Profile"
+        class="social-link"
+      >
+        <Icon
+          name="mdi:linkedin"
+          class="text-3xl text-purple-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+        />
+      </a>
+      <a
+        href="/favicon.svg"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn Profile"
+        class="social-link"
+      >
+        <Icon
+          name="mdi:file-outline"
+          class="text-3xl text-purple-500 hover:text-purple-400 hover:scale-110 transition-all duration-200"
+        />
+      </a>
+    </div>
   </div>
 </section>
