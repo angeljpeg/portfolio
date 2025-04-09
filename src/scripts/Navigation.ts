@@ -92,7 +92,7 @@ export function setupNavigation() {
     function handleScroll(): void {
       // Calcular el punto medio de la pantalla
       const windowHeight = window.innerHeight;
-      const scrollTop = window.scrollY + 500;
+      const scrollTop = window.scrollY + 250;
 
       let currentSection = "";
       let closestDistance = Infinity;
