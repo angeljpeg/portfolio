@@ -62,11 +62,6 @@ const navbarItems = ["is", "experience", "projects", "about", "skills"];
     class="fixed inset-0 bg-zinc-900/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40 flex flex-col justify-center items-center"
   >
     <nav class="flex flex-col items-center gap-6 text-xl">
-      <a
-        href="#is"
-        class="mobile-nav-link py-3 px-6 w-full text-center"
-        data-section="is">.is()</a
-      >
       {
         navbarItems.map((i) => (
           <a
@@ -82,22 +77,29 @@ const navbarItems = ["is", "experience", "projects", "about", "skills"];
     <!-- Mobile Menu Phrase -->
     <div class="mt-12 flex gap-6">
       <a
-        href="#"
+        href="https://github.com/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
         class="text-stone-400 hover:text-purple-500 transition-colors"
       >
         <Icon name="mdi:github" class="w-6 h-6" />
       </a>
       <a
-        href="#"
+        href="https://linkedin.com/in/angeljpeg"
+        target="_blank"
+        rel="noopener noreferrer"
         class="text-stone-400 hover:text-purple-500 transition-colors"
       >
         <Icon name="mdi:linkedin" class="w-6 h-6" />
       </a>
       <a
-        href="#"
-        class="text-stone-400 hover:text-purple-500 transition-colors"
+        href="https://open.spotify.com/user/0ydzarvzdykzbhzfhqhiiutag?si=290e4572e0b241bf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-zinc-400 hover:text-purple-400 transition-colors"
       >
-        <Icon name="mdi:twitter" class="w-6 h-6" />
+        <span class="sr-only">Spotify</span>
+        <Icon name="mdi:spotify" class="text-2xl" />
       </a>
     </div>
   </div>
