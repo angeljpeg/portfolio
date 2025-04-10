@@ -5,47 +5,21 @@ import { Icon } from "astro-icon/components";
 
 const experiences = [
   {
-    position: "Desarrollador Backend Senior",
-    company: "TechSolutions",
-    period: "2021 - Presente",
-    description: "Desarrollo de APIs RESTful con Express y TypeScript. Implementación de microservicios y optimización de bases de datos PostgreSQL.",
-    technologies: ["Node.js", "Express", "TypeScript", "PostgreSQL"],
+    position: "Desarrollador Frontend",
+    company: "Universidad Tecnologica de Nogales",
+    period: "2023 - 2023",
+    description: "Desarrollo de sitio web official.",
+    technologies: ["React", "Tailwind", "TypeScript"],
     highlights: [
-      "Rediseño de arquitectura que mejoró el rendimiento en un 40%",
-      "Implementación de sistema de autenticación con JWT",
-      "Desarrollo de documentación automática con Swagger"
+      "Mejoras en el rendimiento del sitio web.",
     ]
   },
-  {
-    position: "Desarrollador Full Stack",
-    company: "InnovaSoft",
-    period: "2019 - 2021",
-    description: "Desarrollo de aplicaciones web utilizando React en frontend y Nest.js en backend. Gestión de bases de datos MySQL y despliegue con Docker.",
-    technologies: ["Nest.js", "React", "MySQL", "Docker"],
-    highlights: [
-      "Migración exitosa de aplicaciones monolíticas a microservicios",
-      "Implementación de CI/CD con GitHub Actions",
-      "Reducción del 30% en tiempo de carga de la aplicación"
-    ]
-  },
-  {
-    position: "Desarrollador Junior",
-    company: "WebCreative",
-    period: "2017 - 2019",
-    description: "Desarrollo de sitios web responsive con JavaScript y PHP. Mantenimiento y mejora de aplicaciones existentes.",
-    technologies: ["JavaScript", "PHP", "MySQL", "Bootstrap"],
-    highlights: [
-      "Participación en 10+ proyectos entregados a tiempo",
-      "Desarrollo de componentes reutilizables para acelerar proyectos futuros",
-      "Implementación de sistemas de pago con PayPal y Stripe"
-    ]
-  }
 ];
 ---
 
 <section
   id="experience"
-  class="min-h-screen px-4 py-16 sm:px-8 md:px-16 lg:px-24 text-white font-roboto-mono relative"
+  class="px-4 py-16 sm:px-8 md:px-16 lg:px-24 text-white font-roboto-mono relative"
 >
   <!-- Background subtle grid pattern similar to about section -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5 z-0"></div>
@@ -69,7 +43,7 @@ const experiences = [
               <div
                 class="inline-block px-3 py-1 bg-purple-900/30 border border-purple-700/30 rounded-md text-purple-300 text-sm"
               >
-                <span class="font-mono">{exp.company}</span>
+                <span class="font-mono text-pretty">{exp.company}</span>
               </div>
               <span class="text-zinc-400 text-sm">{exp.period}</span>
             </div>
@@ -240,13 +214,14 @@ const experiences = [
   /* Mobile view */
   @media screen and (max-width: 767px) {
     .timeline::after {
-      left: 31px;
+      left: 30px;
     }
 
     .timeline-item {
       width: 100%;
-      padding-left: 70px;
+      padding-left: 60px; /* un poco menos para mejor alineación */
       padding-right: 25px;
+      position: relative;
     }
 
     .timeline-content {
@@ -254,14 +229,15 @@ const experiences = [
       margin-left: 0;
     }
 
-    .left .timeline-dot,
-    .right .timeline-dot {
-      left: 25px;
-    }
+    .timeline-dot {
+    left: 18px; /* mejor alineación respecto al background line */
+    top: 20px;
+  }
 
     .left .timeline-content,
     .right .timeline-content {
       margin-left: 0;
     }
   }
+
 </style>
