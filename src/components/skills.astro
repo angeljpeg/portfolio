@@ -1,257 +1,150 @@
 ---
 /* Skills.astro */
+import { Icon } from "astro-icon/components";
+
+const skills = [
+  {
+    name: "Backend",
+    skills: ["Express", "Nest.js", "Typescript", "MySQL"],
+    icon: "server",
+  },
+  {
+    name: "Frontend",
+    skills: ["Astro", "React", "TailwindCSS"],
+    icon: "monitor-dashboard",
+  },
+  {
+    name: "Herramientas",
+    skills: ["Git", "Linux"],
+    icon: "tools",
+  },
+  {
+    name: "Aprendiendo",
+    skills: ["Docker", "Go"],
+    icon: "book-open-variant",
+  },
+];
 ---
 
 <section
   id="skills"
-  class="px-4 py-16 sm:px-12 md:px-16 lg:px-24 text-white font-roboto-mono"
+  class="min-h-screen px-4 py-16 sm:px-8 md:px-16 text-white font-roboto-mono relative"
 >
-  <main class="flex flex-col gap-8 sm:gap-12">
-    <h3 class="text-3xl sm:text-4xl font-semibold text-center">Mis Skills</h3>
+  <div class="max-w-4xl mx-auto relative z-10">
+    <h3 class="text-3xl sm:text-4xl font-semibold mb-12">Mis Skills</h3>
 
-    <div class="tree-container">
-      <div class="trunk"></div>
-
-      <div class="branches-container">
-        <!-- Backend Branch -->
-        <div class="branch-container">
-          <div class="branch branch-backend"></div>
-          <div class="category-container">
-            <div class="category-node">
-              <span class="category-label">Backend</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Backend Skills -->
+      {
+        skills.map((s) => (
+          <div class="skill-category-card p-4 rounded-xl h-full">
+            <div class="flex items-start gap-2 mb-4">
+              <Icon
+                name={`mdi:${s.icon}`}
+                class="text-purple-500 min-w-[20px] w-5 h-5 mt-1"
+              />
+              <h4 class="text-xl font-medium leading-snug break-words">
+                {s.name}
+              </h4>
             </div>
+
             <ul class="skill-list">
-              <li class="skill-item">
-                <span class="skill-node"></span>Nest.js
-              </li>
-              <li class="skill-item">
-                <span class="skill-node"></span>Express
-              </li>
-              <li class="skill-item"><span class="skill-node"></span>MySQL</li>
-              <li class="skill-item">
-                <span class="skill-node"></span>TypeScript
-              </li>
+              {s.skills.map((i) => (
+                <li class="skill-item">
+                  <span class="skill-bullet" />
+                  {i}
+                </li>
+              ))}
             </ul>
           </div>
-        </div>
-
-        <!-- Frontend Branch -->
-        <div class="branch-container">
-          <div class="branch branch-frontend"></div>
-          <div class="category-container">
-            <div class="category-node">
-              <span class="category-label">Frontend</span>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-node"></span>React</li>
-              <li class="skill-item"><span class="skill-node"></span>Astro</li>
-              <li class="skill-item">
-                <span class="skill-node"></span>Tailwind
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Herramientas Branch -->
-        <div class="branch-container">
-          <div class="branch branch-tools"></div>
-          <div class="category-container">
-            <div class="category-node">
-              <span class="category-label">Herramientas</span>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-node"></span>Git</li>
-              <li class="skill-item"><span class="skill-node"></span>Linux</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Aprendiendo Branch -->
-        <div class="branch-container">
-          <div class="branch branch-learning"></div>
-          <div class="category-container">
-            <div class="category-node">
-              <span class="category-label">Aprendiendo</span>
-            </div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="skill-node"></span>Go</li>
-              <li class="skill-item">
-                <span class="skill-node"></span>GraphQL
-              </li>
-              <li class="skill-item"><span class="skill-node"></span>Docker</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
-  </main>
+  </div>
 </section>
 
 <style>
-  .tree-container {
-    position: relative;
+  .skill-category-card {
+    background-color: rgba(30, 30, 30, 0.5);
+    border: 1px solid rgba(75, 75, 75, 0.2);
+    border-radius: 0.375rem;
+    padding: 1.25rem;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .skill-category-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+
+  .skill-icon {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
-  }
-
-  .trunk {
-    height: 3rem;
-    width: 0.25rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 0.5rem;
-  }
-
-  .branches-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    width: 100%;
-  }
-
-  .branch-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .branch {
+    justify-content: center;
+    width: 2rem;
     height: 2rem;
-    width: 0.125rem;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-left: 1rem;
-  }
-
-  .category-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .category-node {
-    display: inline-flex;
-    padding: 0.375rem 0.75rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 0.75rem;
+    background-color: rgba(168, 85, 247, 0.1);
     border-radius: 0.25rem;
-    margin-left: 1rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    border-left: 2px solid;
-    width: fit-content;
-  }
-
-  .branch-backend + .category-container .category-node {
-    border-color: #60a5fa; /* Blue */
-  }
-
-  .branch-frontend + .category-container .category-node {
-    border-color: #34d399; /* Green */
-  }
-
-  .branch-tools + .category-container .category-node {
-    border-color: #f97316; /* Orange */
-  }
-
-  .branch-learning + .category-container .category-node {
-    border-color: #a78bfa; /* Purple */
   }
 
   .skill-list {
     list-style: none;
-    padding-left: 1.5rem;
-    margin-left: 1rem;
-    border-left: 1px dashed rgba(255, 255, 255, 0.2);
+    margin-top: 0.5rem;
   }
 
   .skill-item {
     position: relative;
-    padding: 0.25rem 0;
-    padding-left: 1.25rem;
-    transition: transform 0.2s ease;
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    transition:
+      transform 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .skill-item:not(:last-child) {
+    border-bottom: 1px solid rgba(75, 75, 75, 0.15);
   }
 
   .skill-item:hover {
-    transform: translateX(0.25rem);
+    transform: translateX(3px);
+    color: rgba(168, 85, 247, 0.9);
   }
 
-  .skill-node {
+  .skill-bullet {
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 0.375rem;
-    height: 0.375rem;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(168, 85, 247, 0.7);
+    margin-right: 0.5rem;
   }
 
-  /* Responsive styles */
-  @media (min-width: 640px) {
-    .branches-container {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .branches-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .trunk {
-      height: 4rem;
-    }
-
-    /* Horizontal branches for desktop */
-    .branches-container {
-      position: relative;
-      margin-top: 2rem;
-    }
-
-    .branches-container::before {
-      content: "";
-      position: absolute;
-      top: -2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 0.25rem;
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .branch {
-      position: absolute;
-      top: -2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 2rem;
-      width: 0.125rem;
-    }
-
-    .category-container {
-      margin-top: 0.5rem;
-      align-items: center;
-    }
-
-    .category-node {
-      margin-left: 0;
-    }
-
-    .skill-list {
-      margin-left: 0;
-      padding-left: 0;
-      border-left: none;
-      text-align: center;
-      width: 100%;
+  /* Reduce motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .skill-category-card {
+      transition: none;
     }
 
     .skill-item {
-      padding-left: 0;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-      padding: 0.5rem 0;
+      transition: none;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .grid {
+      gap: 1rem;
     }
 
-    .skill-node {
-      display: none;
+    .skill-category-card {
+      padding: 1rem;
     }
   }
 </style>
