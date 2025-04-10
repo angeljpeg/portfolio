@@ -7,7 +7,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -52,4 +51,4 @@ jobs:
         id: deploy
         uses: actions/deploy-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Utiliza el token de GitHub para la autenticación
+          token: ${{ secrets.TOKEN_DEPLOY_GP }} # Utiliza el token de GitHub para la autenticación
