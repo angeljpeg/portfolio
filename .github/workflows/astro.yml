@@ -2,7 +2,6 @@ name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [main]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
@@ -17,24 +16,34 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    enviroment: 
+    environment:
       name: github-pages
-      url: ${{steps.deploy.outputs.page_url}}
+      url: ${{ steps.deploy.outputs.page_url }} # Página de despliegue
+
     steps:
+      # 1. Clonar el repositorio
       - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: Install
+      # 2. Instalar dependencias
+      - name: Install dependencies
         run: pnpm i
 
-      - name: Build
-         run: pnpm run build
+      # 3. Construir el proyecto
+      - name: Build project
+        run: pnpm run build
 
-      - name: Upload
+      # 4. Subir el artefacto para GitHub Pages
+      - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-      - name: Deploy
+      # 5. Desplegar en GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deploy
-        uses: action/deploy-pages@v4
+        uses: github/pages-action@v2
+        with:
+          # Puedes ajustar la rama donde deseas desplegar. Aquí se usa `gh-pages`.
+          branch: main
+          folder: dist
