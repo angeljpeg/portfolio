@@ -17,4 +17,7 @@ export default defineConfig({
       },
     }),
   ],
+
+  site: "https://angeljpeg.github.io",
+  base: "portfolio",
 });
