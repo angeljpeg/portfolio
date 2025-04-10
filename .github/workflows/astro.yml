@@ -50,7 +50,7 @@ jobs:
       # 7. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deploy
-        uses: github/pages-action@v2
+        uses: actions/deploy-pages@v3
         with:
           branch: gh-pages
           folder: dist # Carpeta de salida para GitHub Pages
