@@ -52,5 +52,4 @@ jobs:
         id: deploy
         uses: actions/deploy-pages@v3
         with:
-          branch: gh-pages
-          folder: dist # Carpeta de salida para GitHub Pages
+          token: ${{ secrets.GITHUB_TOKEN }} # Utiliza el token de GitHub para la autenticación
