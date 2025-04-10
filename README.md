@@ -1,35 +1,32 @@
-# 💼 Portfolio de [Tu Nombre]
+# angeljpeg
 
-¡Hola! Soy [Tu Nombre], un desarrollador apasionado por la tecnología, el aprendizaje constante y la creación de soluciones limpias y eficientes. Este es mi portfolio personal, donde podrás conocer más sobre mí, mis proyectos y las tecnologías que utilizo.
+¡Hola! Soy Angel, un desarrollador apasionado por la tecnología, el aprendizaje constante y la creación de soluciones limpias y eficientes. Este es mi portfolio personal, donde podrás conocer más sobre mí, mis proyectos y las tecnologías que utilizo.
 
 ## 🚀 Tecnologías y herramientas
 
-- **Lenguajes:** JavaScript | TypeScript | Python | Go | SQL
-- **Frameworks y librerías:** React | Next.js | Node.js | Express | TailwindCSS | Django
+- **Lenguajes:** JavaScript | TypeScript | Go | SQL
+- **Frameworks y librerías:** React | Nest.js | Node.js | Express |
 - **Bases de datos:** PostgreSQL | MySQL | MongoDB
-- **Otros:** Docker | Git | GitHub Actions | Vercel | Linux
+- **Otros:** Docker | Git | Vercel | Linux
 
 ## 📂 Proyectos destacados
 
 | Proyecto | Descripción | Tecnologías |
 |---------|-------------|-------------|
-| [Nombre del Proyecto 1](enlace) | Breve descripción del proyecto | React, Node.js, PostgreSQL |
-| [Nombre del Proyecto 2](enlace) | Otro proyecto cool que hice | Next.js, Tailwind, Vercel |
-| [Nombre del Proyecto 3](enlace) | Algo más técnico o experimental | Go, MySQL, Docker |
+| [Sitio Web para la UTN](enlace) | Es el sitio web oficial de la Universidad Tecnologica de Nogales | React, Typescript |
+
 
 ## ✨ Características
 
-- Diseño responsive
 - Código modular y escalable
 - Clean Architecture en proyectos backend
 - Documentación y buenas prácticas
-- Despliegue automático con CI/CD
 
 ## 📬 Contacto
 
-- Correo: [tucorreo@example.com]
-- LinkedIn: [linkedin.com/in/tuusuario](https://linkedin.com/in/tuusuario)
-- GitHub: [github.com/tuusuario](https://github.com/tuusuario)
+- Correo: [angel117tutu@gmail.com]
+- LinkedIn: [linkedin.com/in/tuusuario](https://linkedin.com/in/angeljpeg)
+- GitHub: [github.com/tuusuario](https://github.com/angeljpeg)
 
 ---
 
