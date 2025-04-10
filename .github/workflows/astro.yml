@@ -37,16 +37,20 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      # 5. Subir el artefacto para GitHub Pages
+      # 5. Verificar la carpeta dist
+      - name: Verify dist contents
+        run: ls -la ./dist
+
+      # 6. Subir el artefacto para GitHub Pages
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist # Asegúrate de que dist contiene los archivos correctos
 
-      # 6. Desplegar en GitHub Pages
+      # 7. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deploy
         uses: github/pages-action@v2
         with:
           branch: gh-pages
-          folder: dist
+          folder: dist # Carpeta de salida para GitHub Pages
