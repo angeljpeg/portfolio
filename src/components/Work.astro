@@ -39,13 +39,13 @@ const experiences = [
             <div class="timeline-dot"></div>
             
             <!-- Company and period badge -->
-            <div class="flex justify-between items-center mb-3 gap-3">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-3 gap-3 flex-wrap">
               <div
                 class="inline-block px-2 py-1 lg:px-3 bg-purple-900/30 border border-purple-700/30 rounded-md text-purple-300 text-sm"
               >
                 <span class="font-mono text-pretty">{exp.company}</span>
               </div>
-              <span class="text-zinc-400 text-sm text-center">{exp.period}</span>
+              <span class="text-zinc-400 text-sm">{exp.period}</span>
             </div>
 
             <!-- Position title -->
