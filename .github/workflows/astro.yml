@@ -25,25 +25,28 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
-      # 2. Instalar dependencias
-      - name: Install dependencies
-        run: pnpm i
+      # 2. Instalar pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      # 3. Construir el proyecto
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: pnpm install
+
+      # 4. Construir el proyecto
       - name: Build project
         run: pnpm run build
 
-      # 4. Subir el artefacto para GitHub Pages
+      # 5. Subir el artefacto para GitHub Pages
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-      # 5. Desplegar en GitHub Pages
+      # 6. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deploy
         uses: github/pages-action@v2
         with:
-          # Puedes ajustar la rama donde deseas desplegar. Aquí se usa `gh-pages`.
-          branch: main
+          branch: gh-pages
           folder: dist
