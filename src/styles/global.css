@@ -12,5 +12,9 @@ body {
   padding: 0;
   width: 100%;
   max-width: 100vw;
-  @apply selection:bg-purple-300/30;
+}
+
+html,
+body ::selection {
+  background-color: rgba(168, 85, 247, 0.3);
 }
