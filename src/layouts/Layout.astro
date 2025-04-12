@@ -10,9 +10,30 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+
     <title>angeljpeg</title>
+
+    <meta
+      name="description"
+      content="Soy un desarrollador backend apasionado por la creación de software eficiente y escalable. Enfocado en buenas prácticas, optimización y aprendizaje constante. ¡Descubre más sobre mi trabajo y proyectos!"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro" />
+
+    <!-- Open Graph (utilizado por LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://linkedin.com/in/angeljpeg" />
+    <meta property="og:title" content="Angeljpeg | Desarrollador Backend" />
+    <meta
+      property="og:description"
+      content="Desarrollador backend con enfoque en optimización, buenas prácticas y mejora continua. Proyectos personales, experiencia práctica y más."
+    />
+    <meta property="og:image" content="/preview.png" />
+
+    <!-- GitHub Profile Link (opcional para conexión semántica) -->
+    <link rel="me" href="https://github.com/angeljpeg" />
+    <meta name="twitter:image" content="/preview.png" />
   </head>
   <body class="bg-zinc-900 overflow-x-hidden w-full">
     <Navbar />
