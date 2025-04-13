@@ -10,9 +10,7 @@ const experiences = [
     period: "2023 - 2023",
     description: "Desarrollo de sitio web official.",
     technologies: ["React", "Tailwind", "TypeScript"],
-    highlights: [
-      "Mejoras en el rendimiento del sitio web.",
-    ]
+    highlights: ["Mejoras en el rendimiento del sitio web."],
   },
 ];
 ---
@@ -30,66 +28,47 @@ const experiences = [
     <Angeljpeg method="experience" />
   </header>
 
-  <main class="relative z-10 max-w-6xl mx-auto">
-    <div class="timeline">
-      {experiences.map((exp, index) => (
-        <div class={`timeline-item ${index % 2 === 0 ? 'right' : 'left'}`}>
-          <div class="timeline-content">
-            <!-- Purple dot at top of timeline node -->
-            <div class="timeline-dot"></div>
-            
-            <!-- Company and period badge -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-3 gap-3 flex-wrap">
-              <div
-                class="inline-block px-2 py-1 lg:px-3 bg-purple-900/30 border border-purple-700/30 rounded-md text-purple-300 text-sm"
-              >
-                <span class="font-mono text-pretty">{exp.company}</span>
-              </div>
-              <span class="text-zinc-400 text-sm">{exp.period}</span>
-            </div>
+  <main class="relative z-10 max-w-4xl mx-auto space-y-12">
+    {
+      experiences.map((exp) => (
+        <div class="bg-zinc-900/50 border border-zinc-700/50 rounded-lg p-6 backdrop-blur-md hover:border-purple-500 transition-all">
+          <div class="flex flex-col sm:flex-row justify-between items-center mb-3 gap-3">
+            <span class="text-purple-300 text-sm">{exp.company}</span>
+            <span class="text-zinc-400 text-sm">{exp.period}</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">{exp.position}</h3>
+          <p class="text-zinc-300 mb-4 text-sm">{exp.description}</p>
 
-            <!-- Position title -->
-            <h3 class="text-xl font-bold mb-2 text-white">
-              {exp.position}
-            </h3>
-
-            <!-- Description -->
-            <p class="text-zinc-300 mb-4 text-sm sm:text-base">
-              {exp.description}
+          <div class="mb-4">
+            <p class="text-xs uppercase text-zinc-500 mb-2">
+              Logros destacados
             </p>
+            <ul class="space-y-2">
+              {exp.highlights.map((h) => (
+                <li class="flex items-start text-sm">
+                  <Icon
+                    name="mdi:chevron-right"
+                    class="text-purple-400 w-4 h-4 mr-2"
+                  />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <!-- Highlights -->
-            <div class="mb-4">
-              <p class="text-xs uppercase tracking-wider text-zinc-500 mb-2">Logros destacados</p>
-              <ul class="space-y-2">
-                {exp.highlights.map(highlight => (
-                  <li class="flex items-start text-sm">
-                    <span class="text-purple-400 mr-2">
-                      <Icon name="mdi:chevron-right" class="w-4 h-4" />
-                    </span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Tech stack -->
-            <div>
-              <p class="text-xs uppercase tracking-wider text-zinc-500 mb-2">Tecnologías</p>
-              <div class="flex flex-wrap gap-2">
-                {exp.technologies.map(tech => (
-                  <span
-                    class="px-2 py-1 bg-zinc-800/50 rounded-md text-xs border border-zinc-700/50 hover:border-purple-500/50 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          <div>
+            <p class="text-xs uppercase text-zinc-500 mb-2">Tecnologías</p>
+            <div class="flex flex-wrap gap-2">
+              {exp.technologies.map((tech) => (
+                <span class="px-2 py-1 bg-zinc-800/50 rounded-md text-xs border border-zinc-700/50 hover:border-purple-500 transition-colors">
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      ))
+    }
   </main>
 </section>
 
@@ -113,7 +92,7 @@ const experiences = [
   }
 
   .timeline::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 2px;
     background-color: rgba(139, 92, 246, 0.3);
@@ -171,8 +150,12 @@ const experiences = [
     border: 1px solid rgba(82, 82, 91, 0.3);
     backdrop-filter: blur(3px);
     border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .timeline-content:hover {
@@ -230,14 +213,13 @@ const experiences = [
     }
 
     .timeline-dot {
-    left: 18px; /* mejor alineación respecto al background line */
-    top: 20px;
-  }
+      left: 18px; /* mejor alineación respecto al background line */
+      top: 20px;
+    }
 
     .left .timeline-content,
     .right .timeline-content {
       margin-left: 0;
     }
   }
-
 </style>

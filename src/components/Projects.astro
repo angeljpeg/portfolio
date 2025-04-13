@@ -11,6 +11,13 @@ const projects = [
     source: "https://github.com/angeljpeg/portfolio",
     preview: "https://angeljpeg.me",
   },
+  {
+    nombre: "Movies API",
+    desc: "API para hacer reviews de peliculas",
+    tech: ["Express", "TypeScript"],
+    source: "https://github.com/angeljpeg/portfolio",
+    preview: "https://angeljpeg.me",
+  },
 ];
 ---
 
@@ -24,7 +31,7 @@ const projects = [
     <Angeljpeg method="projects" />
   </header>
 
-  <main class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+  <main class="grid gap-8 grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
     {
       projects.map((p) => (
         <ProjectCard
@@ -33,6 +40,7 @@ const projects = [
           tech={p.tech}
           source={p.source}
           preview={p.preview}
+          class={projects.length === 1 ? "w-full sm:w-2/3 lg:w-1/2" : ""}
         />
       ))
     }
